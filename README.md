@@ -20,7 +20,7 @@ class Oscar:
     side = "Red Team 🔴"
 
     def motto(self):
-        return "If your model hasn't collapsed yet, I haven't tried yet"
+        return "I break frontier AI systems — so you can fix them and make them safe"
 ```
 
 ---
