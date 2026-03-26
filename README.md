@@ -17,7 +17,7 @@
 class Oscar:
     role = "AI Safety Researcher"
     focus = ["LLM Safety", "Safety Red Teaming"]
-    side = "Love Alignment 🔴"
+    side = "Love Anime 🔴"
 
     def motto(self):
         return "I break frontier AI — so you can fix it and make it safe"
