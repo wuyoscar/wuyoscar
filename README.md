@@ -15,7 +15,7 @@
 
 ```python
 class Oscar:
-    role = "PhD Researcher @ Deakin University"
+    role = "AI Safety Researcher"
     focus = ["LLM Safety", "Red Teaming", "Breaking Things"]
     side = "Red Team 🔴"
 
