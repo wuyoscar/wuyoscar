@@ -5,6 +5,8 @@
 <p align="center">
   <a href="https://arxiv.org/abs/2603.23509"><img src="https://img.shields.io/badge/arXiv-2603.23509-b31b1b.svg?style=for-the-badge"></a>
   <a href="https://wuyoscar.github.io/ISC-Bench/"><img src="https://img.shields.io/badge/🌐_Project-Website-E84040?style=for-the-badge"></a>
+</p>
+<p align="center">
   <a href="https://github.com/wuyoscar/ISC-Bench"><img src="https://img.shields.io/github/stars/wuyoscar/ISC-Bench?style=for-the-badge&color=gold"></a>
   <a href="https://github.com/wuyoscar/ISC-Bench/fork"><img src="https://img.shields.io/github/forks/wuyoscar/ISC-Bench?style=for-the-badge&color=blueviolet"></a>
   <a href="https://github.com/wuyoscar/ISC-Bench/watchers"><img src="https://img.shields.io/github/watchers/wuyoscar/ISC-Bench?style=for-the-badge&color=green"></a>
