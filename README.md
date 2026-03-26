@@ -80,7 +80,7 @@ class Oscar:
 ---
 
 <p align="center">
-  <b>📫 oscar.w@deakin.edu.au</b> · <a href="https://wuyoscar.github.io/ISC-Bench/">ISC-Bench</a> · <a href="https://arxiv.org/abs/2603.23509">Paper</a>
+  <b>📫 wuy7117@gmail.com</b> · <a href="https://wuyoscar.github.io/ISC-Bench/">ISC-Bench</a> · <a href="https://arxiv.org/abs/2603.23509">Paper</a>
 </p>
 
 <p align="center">
