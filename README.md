@@ -16,7 +16,7 @@
 ```python
 class Oscar:
     role = "AI Safety Researcher"
-    focus = ["LLM Safety", "Safety Red Teaming"]
+    focus = "Red Teaming"
     hobby = "Love Anime 🔴"
 
     def motto(self):
