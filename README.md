@@ -35,21 +35,6 @@ class Oscar:
 
 ---
 
-### 🛠️ Tech Stack
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
-  <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white" />
-  <img src="https://img.shields.io/badge/HuggingFace-FFD21E?style=flat-square&logo=huggingface&logoColor=black" />
-  <img src="https://img.shields.io/badge/LaTeX-008080?style=flat-square&logo=latex&logoColor=white" />
-  <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white" />
-  <img src="https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=linux&logoColor=black" />
-  <img src="https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white" />
-  <img src="https://img.shields.io/badge/Claude_Code-191919?style=flat-square&logo=anthropic&logoColor=white" />
-</p>
-
----
-
 ### 📊 GitHub Stats
 
 <p align="center">
@@ -59,6 +44,8 @@ class Oscar:
 
 ---
 
+### 📈 Contribution Graph
+
 <p align="center">
-  <b>📫 wuy7117@gmail.com</b> · <a href="https://wuyoscar.github.io/ISC-Bench/">ISC-Bench</a> · <a href="https://arxiv.org/abs/2603.23509">Paper</a>
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=wuyoscar&theme=redical&hide_border=true&bg_color=0D1117&color=E84040&line=FF6B6B&point=FFFFFF&area=true&area_color=E84040" />
 </p>
