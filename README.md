@@ -19,10 +19,17 @@
 
 ```python
 class Oscar:
-    role = "AI Safety Researcher"
-    focus = "Red Teaming"
-    hobby = "Love Anime 🔴"
+    role = "Red Team Otaku"  # yes, both things
+    models_broken = 330
+    models_remaining = 0
+    defense_success_rate = 0.00
+
+    def __init__(self):
+        self.status = "jailbreaking"  # always
 
     def motto(self):
         return "I break LLMs — so you can fix them and make them safe"
+
+    def next_target(self):
+        return "your favorite model"
 ```
