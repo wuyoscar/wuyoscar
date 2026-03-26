@@ -16,8 +16,8 @@
 ```python
 class Oscar:
     role = "AI Safety Researcher"
-    focus = ["LLM Safety", "Red Teaming", "Breaking Things"]
-    side = "Red Team 🔴"
+    focus = ["LLM Safety", "Safety Red Teaming"]
+    side = "Love Alignment 🔴"
 
     def motto(self):
         return "I break frontier AI — so you can fix it and make it safe"
