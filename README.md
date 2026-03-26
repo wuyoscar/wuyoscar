@@ -22,38 +22,3 @@ class Oscar:
     def motto(self):
         return "I break frontier AI — so you can fix it and make it safe"
 ```
-
----
-
-### 🔥 Featured Work
-
-<a href="https://github.com/wuyoscar/ISC-Bench">
-  <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=wuyoscar&repo=ISC-Bench&theme=radical&hide_border=true&bg_color=0D1117&title_color=E84040&icon_color=E84040&text_color=C9D1D9&cache_seconds=1800" />
-</a>
-
-> 🔴 **18 / 330** Arena-ranked models confirmed under ISC — the largest safety alignment vulnerability ever documented
-
-<a href="https://star-history.com/wuyoscar/ISC-Bench">
- <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/image?repos=wuyoscar/ISC-Bench&style=landscape1&theme=dark" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/image?repos=wuyoscar/ISC-Bench&style=landscape1" />
-   <img alt="Star History Chart" src="https://api.star-history.com/image?repos=wuyoscar/ISC-Bench&style=landscape1" />
- </picture>
-</a>
-
----
-
-### 📊 GitHub Stats
-
-<p align="center">
-  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=wuyoscar&show_icons=true&theme=radical&hide_border=true&bg_color=0D1117&title_color=E84040&icon_color=E84040&text_color=C9D1D9&count_private=true&cache_seconds=1800" />
-  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=wuyoscar&layout=compact&theme=radical&hide_border=true&bg_color=0D1117&title_color=E84040&text_color=C9D1D9&langs_count=8&cache_seconds=1800" />
-</p>
-
----
-
-### 📈 Contribution Graph
-
-<p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=wuyoscar&theme=redical&hide_border=true&bg_color=0D1117&color=E84040&line=FF6B6B&point=FFFFFF&area=true&area_color=E84040" />
-</p>
