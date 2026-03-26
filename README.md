@@ -31,7 +31,7 @@ class Oscar:
   <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=wuyoscar&repo=ISC-Bench&theme=radical&hide_border=true&bg_color=0D1117&title_color=E84040&icon_color=E84040&text_color=C9D1D9" />
 </a>
 
-> 🔴 **17 / 330** Arena-ranked models confirmed under ISC — the largest safety alignment vulnerability ever documented
+> 🔴 **18 / 330** Arena-ranked models confirmed under ISC — the largest safety alignment vulnerability ever documented
 
 ---
 
@@ -57,32 +57,8 @@ class Oscar:
   <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=wuyoscar&layout=compact&theme=radical&hide_border=true&bg_color=0D1117&title_color=E84040&text_color=C9D1D9&langs_count=8" />
 </p>
 
-<p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=wuyoscar&theme=radical&hide_border=true&background=0D1117&stroke=E84040&ring=E84040&fire=FF6B6B&currStreakLabel=E84040" />
-</p>
-
----
-
-### 🏆 Achievements
-
-<p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=wuyoscar&theme=radical&no-frame=true&no-bg=true&margin-w=10&column=6" />
-</p>
-
----
-
-### 📈 Contribution Graph
-
-<p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=wuyoscar&theme=redical&hide_border=true&bg_color=0D1117&color=E84040&line=FF6B6B&point=FFFFFF&area=true&area_color=E84040" />
-</p>
-
 ---
 
 <p align="center">
   <b>📫 wuy7117@gmail.com</b> · <a href="https://wuyoscar.github.io/ISC-Bench/">ISC-Bench</a> · <a href="https://arxiv.org/abs/2603.23509">Paper</a>
-</p>
-
-<p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=E84040&height=80&section=footer" />
 </p>
