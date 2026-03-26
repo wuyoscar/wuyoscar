@@ -33,6 +33,14 @@ class Oscar:
 
 > 🔴 **18 / 330** Arena-ranked models confirmed under ISC — the largest safety alignment vulnerability ever documented
 
+<a href="https://star-history.com/wuyoscar/ISC-Bench">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/image?repos=wuyoscar/ISC-Bench&style=landscape1&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/image?repos=wuyoscar/ISC-Bench&style=landscape1" />
+   <img alt="Star History Chart" src="https://api.star-history.com/image?repos=wuyoscar/ISC-Bench&style=landscape1" />
+ </picture>
+</a>
+
 ---
 
 ### 📊 GitHub Stats
