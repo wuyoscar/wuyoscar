@@ -17,13 +17,9 @@
 class Oscar:
     role = "PhD Researcher @ Deakin University"
     focus = ["LLM Safety", "Red Teaming", "Breaking Things"]
-    current = "ISC-Bench — 330 models, all broken"
     side = "Red Team 🔴"
 
-    def mission(self):
-        return "I break frontier AI systems — so you can fix them"
-
-    def status(self):
+    def motto(self):
         return "If your model hasn't collapsed yet, I haven't tried yet"
 ```
 
