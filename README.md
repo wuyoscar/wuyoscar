@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=28&duration=3000&pause=1000&color=E84040&center=true&vCenter=true&multiline=true&width=700&height=100&lines=LLM+Safety+Researcher+%F0%9F%94%B4;Building+ISC-Bench+%7C+JailbreakArena" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=28&duration=3000&pause=1000&color=E84040&center=true&vCenter=true&multiline=true&width=700&height=100&lines=Internal+Safety+Collapse+%F0%9F%94%B4;330+Frontier+Models+Jailbroken" alt="Typing SVG" />
 </p>
 
 <p align="center">
