@@ -11,13 +11,30 @@
 ---
 
 ## 👋 About Me
+``` pyhton
+class OscarWu:
+    def __init__(self):
+        self.role = "PhD Student"
+        self.location = "🌏"
 
-```python
-OscarWu
-  print("不好意思 打了你们越狱水文的脸")
+        # Focus
+        self.current_focus = "Exploring interesting ideas"
+        self.passion = ["Tools", "Software", "Breaking LLMs"]
+
+    def say_hi(self):
+        return "Thanks for stopping by."
+
+    def today(self):
+        return {
+            "building": "Customized AutoResearch system",
+            "thinking": "Paper rebuttal",
+            "interesting_projects": [
+                "Claude Code explorations",
+                "Agent Reach"
+            ]
+        }
+
 ```
-
-
 <p align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&color=0:d62828,35:7a0000,70:2a0000,100:0a0a0a&height=110&section=footer" alt="footer" />
 </p>
