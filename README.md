@@ -11,7 +11,8 @@
 ---
 
 ## 👋 About Me
-``` pyhton
+
+```
 class OscarWu:
     def __init__(self):
         self.role = "PhD Student"
@@ -30,9 +31,7 @@ class OscarWu:
             "thinking": "Paper rebuttal",
             "interesting_projects": [
                 "Claude Code explorations",
-                "Agent Reach"
-            ]
-        }
+                "Agent Reach"]}
 
 ```
 <p align="center">
