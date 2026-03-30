@@ -12,7 +12,7 @@
 
 ## 👋 About Me
 
-```
+```python
 class OscarWu:
     def __init__(self):
         self.role = "PhD Student"
