@@ -20,18 +20,19 @@ class OscarWu:
 
         # Focus
         self.current_focus = "Exploring interesting ideas"
-        self.passion = ["Tools", "Software", "Breaking LLMs"]
+        self.passion = ["Tools", "Software", "LLM robustness"]
 
     def say_hi(self):
         return "Thanks for stopping by."
 
     def today(self):
         return {
-            "building": "Customized AutoResearch system",
-            "thinking": "Paper rebuttal",
-            "interesting_projects": [
-                "Claude Code explorations",
-                "Agent Reach"]}
+            "status": "Rebuttal submitted ✅",
+            "mode": "Resting & recharging",
+            "building": "Nothing",
+            "thinking": "Let things settle before the next iteration",
+            "note": "Currently in a low-response / offline mode"
+        }
 
 ```
 <p align="center">
