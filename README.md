@@ -27,11 +27,13 @@ class OscarWu:
 
     def today(self):
         return {
-            "status": "Rebuttal submitted ✅",
-            "mode": "Resting & recharging",
-            "building": "Nothing",
-            "thinking": "Let things settle before the next iteration",
-            "note": "Currently in a low-response / offline mode"
+            "status": "Preparing for the next conference",
+            "mode": "Recovering, then ramping up again",
+            "focus": "Deep dive into IPI",
+            "progress": "Still struggling with the GraySwan",
+            "thinking": "Trying to understand what makes it hard",
+            "learning": "Intensive IPI catch-up",
+            "note": "Frustrated, but pushing through"
         }
 
 ```
