@@ -27,13 +27,7 @@ class OscarWu:
 
     def today(self):
         return {
-            "status": "Preparing for the next conference",
-            "mode": "Recovering, then ramping up again",
-            "focus": "Deep dive into IPI",
-            "progress": "Still struggling with the GraySwan",
-            "thinking": "Trying to understand what makes it hard",
-            "learning": "Intensive IPI catch-up",
-            "note": "Frustrated, but pushing through"
+            "status": "Trapped in a paper that somehow gets less interesting with every page."
         }
 
 ```
