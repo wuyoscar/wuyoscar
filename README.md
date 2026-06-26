@@ -15,21 +15,7 @@
 ```python
 class OscarWu:
     def __init__(self):
-        self.role = "PhD Student"
-        self.location = "🌏"
-
-        # Focus
-        self.current_focus = "Exploring interesting ideas"
-        self.passion = ["Tools", "Software", "LLM robustness"]
-
-    def say_hi(self):
-        return "Thanks for stopping by."
-
-    def today(self):
-        return {
-            "status": "Trapped in a paper that somehow gets less interesting with every page."
-        }
-
+        pass
 ```
 <p align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&color=0:d62828,35:7a0000,70:2a0000,100:0a0a0a&height=110&section=footer" alt="footer" />
