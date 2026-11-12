@@ -32,7 +32,7 @@ FONT, LH, PAD = 15, 18, 22
 CW = FONT * 0.602          # 等宽字符宽度；每行再用 textLength 锁死，换字体不会错位
 ART_COLS, GAP_COLS, INFO_COLS = 24, 3, 64
 ART_ROWS = 21            # 头像高度（按右栏行数算），顶部对齐，不再撑满整列
-STAR_COLS = 8              # Open Source 每行右侧留给 star 数的宽度
+STAR_COLS = 9              # Open Source 每行右侧留给 star 数的宽度
 ART_FONT, ART_LH = 6, 7    # 字符画用小字号，分辨率才够
 ART_CW = ART_FONT * 0.602
 
@@ -65,7 +65,7 @@ SECTIONS = [
 VENUES = ["NeurIPS, ICML, ICLR,", "WWW, ACL, EMNLP"]
 # (仓库名, 一句话说明)；star 数按仓库名从 API 取
 PROJECTS = [
-    ("Internal-Safety-Collapse", "red teaming, NeurIPS 2026"),
+    ("Internal-Safety-Collapse", "red teaming, NeurIPS'26"),
     ("AISafetyHot", "daily AI safety news & papers"),
     ("GPT-Image2-Skill", "image prompts, CLI, agent skill"),
     ("jev-skill", "agent skills & workflows"),

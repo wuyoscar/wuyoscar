@@ -12,8 +12,3 @@
 [jev-skill](https://github.com/wuyoscar/jev-skill) ·
 [arxiv2agent](https://github.com/wuyoscar/arxiv2agent) ·
 [scamworld-bench](https://github.com/wuyoscar/scamworld-bench)
-
-**Links**&nbsp;
-[aisafetyhot.com](https://aisafetyhot.com) ·
-[Google Scholar](https://scholar.google.com/citations?user=F41UYqAAAAAJ) ·
-[LinkedIn](https://www.linkedin.com/in/oscar-wu-/)
