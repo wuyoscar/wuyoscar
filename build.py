@@ -31,7 +31,7 @@ DEFAULT_ART = "pixel"
 FONT, LH, PAD = 15, 18, 22
 CW = FONT * 0.602          # 等宽字符宽度；每行再用 textLength 锁死，换字体不会错位
 ART_COLS, GAP_COLS, INFO_COLS = 24, 3, 64
-ART_ROWS = 19            # 头像高度（按右栏行数算），顶部对齐，不再撑满整列
+ART_ROWS = 21            # 头像高度（按右栏行数算），顶部对齐，不再撑满整列
 STAR_COLS = 8              # Open Source 每行右侧留给 star 数的宽度
 ART_FONT, ART_LH = 6, 7    # 字符画用小字号，分辨率才够
 ART_CW = ART_FONT * 0.602
@@ -48,7 +48,6 @@ SECTIONS = [
         ("Misinformation", "fact checking, fake media, web scams"),
     ]),
     ("Open Source", "@projects"),
-    ("Publications", [("Venues", "NeurIPS, ICML, ICLR, WWW, ACL, EMNLP")]),
     ("Offline", [
         ("Sports", "basketball, swimming, hiking"),
         ("Dog", "Python, a golden retriever"),
@@ -61,8 +60,9 @@ SECTIONS = [
         ("Scholar", "scholar.google.com/citations?user=F41UYqAAAAAJ"),
         ("LinkedIn", "linkedin.com/in/oscar-wu-"),
     ]),
-    ("GitHub Stats", "@stats"),
 ]
+# 头像下方的窄栏：只放值很短的内容，把左边填满
+VENUES = ["NeurIPS, ICML, ICLR,", "WWW, ACL, EMNLP"]
 # (仓库名, 一句话说明)；star 数按仓库名从 API 取
 PROJECTS = [
     ("Internal-Safety-Collapse", "red teaming, NeurIPS 2026"),
@@ -168,6 +168,27 @@ def info_lines(stats):
         else:
             for k, v in items:
                 item(k, v)
+    return lines
+
+
+def left_lines(stats):
+    """头像下方窄栏（宽 ART_COLS）：GitHub 数字 + 发表过的会议。"""
+    W = ART_COLS
+    lines = []
+
+    def rule(title):
+        head = f"- {title} "
+        lines.append([("fg", head + "─" * (W - len(head)))])
+
+    rule("GitHub")
+    for k, v in (("Repos", str(stats["repos"])), ("Stars", f"{stats['stars']:,}"),
+                 ("Followers", str(stats["followers"]))):
+        lines.append([("dot", ". "), ("key", k), ("fg", ":"),
+                      ("dot", " " + "." * (W - len(k) - len(v) - 5) + " "), ("val", v)])
+    lines.append([])
+    rule("Publications")
+    for v in VENUES:
+        lines.append([("dot", ". "), ("val", v.ljust(W - 2))])
     return lines
 
 
@@ -280,7 +301,8 @@ def art_svg(style, c, x, y, w, h):
 def render(theme, style, stats, out_path):
     c = THEMES[theme]
     info = info_lines(stats) + [([], None), "prompt"]
-    rows = len(info)
+    left = left_lines(stats)
+    rows = max(len(info), ART_ROWS + 1 + len(left))
     art_w, info_w = ART_COLS * CW, INFO_COLS * CW
     art_h = min(rows, ART_ROWS) * LH
     info_x = PAD + art_w + GAP_COLS * CW
@@ -326,6 +348,13 @@ def render(theme, style, stats, out_path):
         if star:
             out.append(f'<text x="{info_x + info_w:.1f}" y="{y}" class="star" '
                        f'text-anchor="end">{escape(star)}</text>')
+    for i, spans in enumerate(left):
+        if not spans:
+            continue
+        y = PAD + (ART_ROWS + 1 + i) * LH + FONT - 1
+        text = "".join(f'<tspan class="{cls}">{escape(t)}</tspan>' for cls, t in spans)
+        out.append(f'<text x="{PAD}" y="{y}" xml:space="preserve" '
+                   f'textLength="{art_w:.1f}" lengthAdjust="spacing">{text}</text>')
     out.append("</svg>")
     out_path.write_text("\n".join(out) + "\n", encoding="utf-8")
     return width, height, out_path.stat().st_size // 1024
