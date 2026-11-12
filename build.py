@@ -31,7 +31,7 @@ DEFAULT_ART = "pixel"
 FONT, LH, PAD = 15, 18, 22
 CW = FONT * 0.602          # 等宽字符宽度；每行再用 textLength 锁死，换字体不会错位
 ART_COLS, GAP_COLS, INFO_COLS = 24, 3, 64
-ART_ROWS = 22            # 头像高度（按右栏行数算），顶部对齐，不再撑满整列
+ART_ROWS = 25            # 头像高度（按右栏行数算），顶部对齐，不再撑满整列
 STAR_COLS = 9              # Open Source 每行右侧留给 star 数的宽度
 ART_FONT, ART_LH = 6, 7    # 字符画用小字号，分辨率才够
 ART_CW = ART_FONT * 0.602
@@ -41,9 +41,14 @@ ART_CW = ART_FONT * 0.602
 SECTIONS = [
     (None, [("Location", "Melbourne, Australia")]),
     ("Topics", [
-        ("AI.Safety", "red teaming, jailbreaks, agent safety"),
-        ("Agents", "multi-agent systems, agent skills"),
-        ("Information", "retrieval, misinformation"),
+        ("Agents", "multi-agent workflows, agent skills"),
+        ("Agent.Safety", "web, GUI, coding, computer-use agents"),
+        ("RedTeaming", "jailbreaks, prompt injection"),
+        ("Robustness", "backdoors, poisoning, transferable attacks"),
+        ("Retrieval", "paper search & reading, RAG, hallucination"),
+        ("Multimodal", "vision-language models, image generation"),
+        ("Misinformation", "fact checking, fake media, web scams"),
+        ("Governance", "AI safety & frontier-AI policy"),
     ]),
     ("Open Source", "@projects"),
     ("Offline", [
