@@ -6,7 +6,7 @@
 
     uv run build.py                 # 抓 GitHub 数据并生成两套主题
     uv run build.py --offline       # 不联网，用 stats.json 里上次的数字
-    uv run build.py --art hybrid    # 左图风格：pixel / image / hybrid / ascii
+    uv run build.py --art pixel     # 左图风格：dog（默认）/ pixel / image / hybrid / ascii
     uv run build.py --all-styles    # 所有风格都生成到 variants/，用来对比
 
 文字内容在 SECTIONS / PROJECTS 里；star 等数字由脚本抓取，不要手写。
@@ -25,13 +25,13 @@ from PIL import Image, ImageEnhance, ImageOps
 
 HERE = Path(__file__).parent
 USER = "wuyoscar"
-DEFAULT_ART = "pixel"
+DEFAULT_ART = "dog"
 
 # ---- 版式（px）----
 FONT, LH, PAD = 15, 18, 22
 CW = FONT * 0.602          # 等宽字符宽度；每行再用 textLength 锁死，换字体不会错位
 ART_COLS, GAP_COLS, INFO_COLS = 24, 3, 64
-ART_ROWS = 25            # 头像高度（按右栏行数算），顶部对齐，不再撑满整列
+ART_ROWS = 16            # 头像高度（按右栏行数算），顶部对齐，不再撑满整列
 STAR_COLS = 9              # Open Source 每行右侧留给 star 数的宽度
 ART_FONT, ART_LH = 6, 7    # 字符画用小字号，分辨率才够
 ART_CW = ART_FONT * 0.602
@@ -51,12 +51,6 @@ SECTIONS = [
         ("Governance", "AI safety & frontier-AI policy"),
     ]),
     ("Open Source", "@projects"),
-    ("Offline", [
-        ("Sports", "basketball, swimming, hiking"),
-        ("Dog", "Python, a golden retriever"),
-        ("Kitchen", "likes to cook"),
-        ("Games", "League of Legends, Elden Ring"),
-    ]),
     ("Contact", [
         ("Email", "wuy7117@gmail.com"),
         ("Website", "aisafetyhot.com"),
@@ -64,7 +58,39 @@ SECTIONS = [
         ("LinkedIn", "linkedin.com/in/oscar-wu-"),
     ]),
 ]
-# 头像下方的窄栏（GitHub 数字）在 left_lines 里
+# 左栏窄板块（宽 ART_COLS，每行最多 22 个字符）
+OFFLINE = ["basketball, swimming,", "hiking, cooking,", "League of Legends,", "Elden Ring"]
+
+# 左图：像素画的金毛 Python。一个字符 = 一个像素，颜色见 DOG_COLORS，"." 透明
+DOG = [
+    "......................",
+    "....KKK........KKK....",
+    "...KDDDKKKKKKKKDDDK...",
+    "..KDDDKGGGGGGGGKDDDK..",
+    "..KDDKGGGGGGGGGGKDDK..",
+    "..KDDKGGGGGGGGGGKDDK..",
+    "..KDDKGGKWGGGKWGKDDK..",
+    "..KDDKGGKKGGGKKGKDDK..",
+    "..KDKGGGLLLLLLGGGKDK..",
+    "...KKGGLLLNNLLLGGKK...",
+    "....KGGLLLNNLLLGGK....",
+    "....KGGLLKLLKLLGGK....",
+    ".....KGLLLKKLLLGK.....",
+    ".....KGGLLTTLLGGK.....",
+    "......KGGGTTGGGK......",
+    ".....KGGGGGGGGGGK.....",
+    "....KGGGLLLLLLGGGK....",
+    "...KGGGGLLLLLLGGGGK...",
+    "...KGGGGLLLLLLGGGGK...",
+    "...KGGGGGLLLLGGGGGK...",
+    "...KGGKGGGLLGGGKGGK...",
+    "...KGGKGGGGGGGGKGGK...",
+    "...KLLKGGKKKKGGKLLK...",
+    "....KKKKKK..KKKKKK....",
+]
+DOG_TAIL = (18, 17, ["..KK", ".KGK", "KGGK", "KGK."])  # (列, 行, 像素)，单独一组用来摇
+DOG_COLORS = {"K": "#4a3020", "G": "#e9a23b", "L": "#f7cf7e", "D": "#b97428",
+              "N": "#2a1a12", "W": "#ffffff", "T": "#f28a9b"}
 # (仓库名, 一句话说明)；star 数按仓库名从 API 取
 PROJECTS = [
     ("Internal-Safety-Collapse", "red teaming, NeurIPS'26"),
@@ -77,9 +103,11 @@ PROJECTS = [
 
 THEMES = {
     "dark": dict(bg="#161b22", fg="#c9d1d9", key="#ffa657", val="#a5d6ff", dot="#586069",
-                 star="#e3b341", border="#30363d", panel="#0d1117", glow="#ff5c6c"),
+                 star="#e3b341", border="#30363d", panel="#0d1117", glow="#ff5c6c",
+                 dogpanel="#0d1117"),
     "light": dict(bg="#f6f8fa", fg="#24292f", key="#953800", val="#0a3069", dot="#afb8c1",
-                  star="#9a6700", border="#d0d7de", panel="#0d1117", glow="#cf222e"),
+                  star="#9a6700", border="#d0d7de", panel="#0d1117", glow="#cf222e",
+                  dogpanel="#ffffff"),
 }
 
 # 左图每种风格在头像上的取景：上边、下边、水平中心（占原图比例）
@@ -174,7 +202,7 @@ def info_lines(stats):
 
 
 def left_lines(stats):
-    """头像下方窄栏（宽 ART_COLS）：GitHub 数字。"""
+    """左图下方窄栏（宽 ART_COLS）：Offline + GitHub 数字。"""
     W = ART_COLS
     lines = []
 
@@ -182,6 +210,10 @@ def left_lines(stats):
         head = f"- {title} "
         lines.append([("fg", head + "─" * (W - len(head)))])
 
+    rule("Offline")
+    for v in OFFLINE:
+        lines.append([("dot", ". "), ("val", v.ljust(W - 2))])
+    lines.append([])
     rule("GitHub")
     for k, v in (("Repos", str(stats["repos"])), ("Stars", f"{stats['stars']:,}"),
                  ("Followers", str(stats["followers"]))):
@@ -247,7 +279,48 @@ def ascii_runs(img, w_px, h_px, lift, n_colors=64, font=ART_FONT, lh=ART_LH,
     return out, palette, rows, cols
 
 
+def dog_svg(c, x, y, w, h):
+    """像素金毛：每个像素一个 rect，尾巴单独一组做摇尾动画。"""
+    assert all(len(r) == len(DOG[0]) for r in DOG)
+    cap_h = 26
+    cell = int(min((w - 24) / (len(DOG[0]) + 2), (h - cap_h - 16) / len(DOG)))
+    ox = x + (w - cell * (len(DOG[0]) + 2)) / 2
+    oy = y + (h - cap_h - cell * len(DOG)) / 2 + 2
+
+    def pixels(grid, col0, row0):
+        out = []
+        for r, row in enumerate(grid):
+            c0 = 0
+            while c0 < len(row):       # 同色的连续像素合并成一个 rect
+                ch = row[c0]
+                c1 = c0
+                while c1 < len(row) and row[c1] == ch:
+                    c1 += 1
+                if ch != ".":
+                    out.append(f'<rect x="{ox + (col0 + c0) * cell:.1f}" y="{oy + (row0 + r) * cell:.1f}" '
+                               f'width="{(c1 - c0) * cell}" height="{cell}" fill="{DOG_COLORS[ch]}"/>')
+                c0 = c1
+        return out
+
+    tc, tr, tail = DOG_TAIL
+    body = [
+        f'<rect x="{x}" y="{y}" width="{w:.1f}" height="{h}" rx="6" fill="{c["dogpanel"]}" '
+        f'stroke="{c["border"]}"/>',
+        '<g shape-rendering="crispEdges">',
+        '<g class="tail">', *pixels(tail, tc, tr), "</g>",
+        *pixels(DOG, 0, 0),
+        "</g>",
+        f'<text x="{x + w / 2:.1f}" y="{y + h - 12}" text-anchor="middle" font-size="12px" '
+        f'class="dot">Python, golden retriever</text>',
+    ]
+    css = ("@keyframes wag{50%{transform:rotate(16deg)}}"
+           ".tail{transform-box:fill-box;transform-origin:0% 100%;animation:wag .5s steps(1) infinite}")
+    return css, body
+
+
 def art_svg(style, c, x, y, w, h):
+    if style == "dog":
+        return dog_svg(c, x, y, w, h)
     """返回 (css, svg 片段列表)。三种风格共用深色面板、圆角裁剪和角标。"""
     img = crop_avatar(style, w, h)
     css, body = "", [
@@ -360,7 +433,7 @@ def render(theme, style, stats, out_path):
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
-    ap.add_argument("--art", choices=list(CROPS), default=DEFAULT_ART)
+    ap.add_argument("--art", choices=["dog", *CROPS], default=DEFAULT_ART)
     ap.add_argument("--offline", action="store_true")
     ap.add_argument("--all-styles", action="store_true")
     args = ap.parse_args()
