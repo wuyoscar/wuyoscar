@@ -6,7 +6,7 @@
 
     uv run build.py                 # 抓 GitHub 数据并生成两套主题
     uv run build.py --offline       # 不联网，用 stats.json 里上次的数字
-    uv run build.py --art pixel     # 左图风格：dog（默认）/ pixel / image / hybrid / ascii
+    uv run build.py --art pixel     # 左图风格：photo（默认，Python 的照片）/ dog / pixel / image / hybrid / ascii
     uv run build.py --all-styles    # 所有风格都生成到 variants/，用来对比
 
 文字内容在 SECTIONS / PROJECTS 里；star 等数字由脚本抓取，不要手写。
@@ -25,7 +25,7 @@ from PIL import Image, ImageEnhance, ImageOps
 
 HERE = Path(__file__).parent
 USER = "wuyoscar"
-DEFAULT_ART = "dog"
+DEFAULT_ART = "photo"
 
 # ---- 版式（px）----
 FONT, LH, PAD = 15, 18, 22
@@ -318,7 +318,52 @@ def dog_svg(c, x, y, w, h):
     return css, body
 
 
+PHOTO_CELL = 5      # 照片像素画：每个像素格的边长（px），越大越“像素”
+PHOTO_COLORS = 28
+
+
+def photo_svg(c, x, y, w, h):
+    """python.png（已抠好背景的 RGBA 照片）-> 像素画：缩到格子分辨率、减色，每段同色像素一个 rect。"""
+    cap_h = 26
+    src = Image.open(HERE / "python.png").convert("RGBA")
+    max_cols, max_rows = int((w - 16) / PHOTO_CELL), int((h - cap_h - 10) / PHOTO_CELL)
+    scale = min(max_cols / src.width, max_rows / src.height)
+    cols, rows = round(src.width * scale), round(src.height * scale)
+    # 先预乘 alpha 再缩小，边缘才不会混进背景色
+    small = src.convert("RGBa").resize((cols, rows), Image.Resampling.LANCZOS).convert("RGBA")
+    alpha = small.getchannel("A").tobytes()
+    rgb = ImageEnhance.Contrast(ImageEnhance.Color(small.convert("RGB")).enhance(1.25)).enhance(1.1)
+    q = rgb.quantize(PHOTO_COLORS, method=Image.Quantize.MEDIANCUT, dither=Image.Dither.NONE)
+    idx, pal = q.tobytes(), q.getpalette()
+    ox = x + (w - cols * PHOTO_CELL) / 2
+    oy = y + (h - cap_h - rows * PHOTO_CELL) / 2 + 3
+    body = [
+        f'<rect x="{x}" y="{y}" width="{w:.1f}" height="{h}" rx="6" fill="{c["dogpanel"]}" '
+        f'stroke="{c["border"]}"/>',
+        '<g shape-rendering="crispEdges">',
+    ]
+    for r in range(rows):
+        c0 = 0
+        while c0 < cols:
+            i = r * cols + c0
+            key = idx[i] if alpha[i] >= 128 else None
+            c1 = c0
+            while c1 < cols and (idx[r * cols + c1] if alpha[r * cols + c1] >= 128 else None) == key:
+                c1 += 1
+            if key is not None:
+                col = "#%02x%02x%02x" % tuple(pal[key * 3:key * 3 + 3])
+                body.append(f'<rect x="{ox + c0 * PHOTO_CELL:.1f}" y="{oy + r * PHOTO_CELL:.1f}" '
+                            f'width="{(c1 - c0) * PHOTO_CELL}" height="{PHOTO_CELL}" fill="{col}"/>')
+            c0 = c1
+    body += ["</g>",
+             f'<text x="{x + w / 2:.1f}" y="{y + h - 12}" text-anchor="middle" font-size="12px" '
+             f'class="dot">Python, golden retriever</text>']
+    return "", body
+
+
 def art_svg(style, c, x, y, w, h):
+    if style == "photo":
+        return photo_svg(c, x, y, w, h)
     if style == "dog":
         return dog_svg(c, x, y, w, h)
     """返回 (css, svg 片段列表)。三种风格共用深色面板、圆角裁剪和角标。"""
@@ -433,7 +478,7 @@ def render(theme, style, stats, out_path):
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
-    ap.add_argument("--art", choices=["dog", *CROPS], default=DEFAULT_ART)
+    ap.add_argument("--art", choices=["photo", "dog", *CROPS], default=DEFAULT_ART)
     ap.add_argument("--offline", action="store_true")
     ap.add_argument("--all-styles", action="store_true")
     args = ap.parse_args()
