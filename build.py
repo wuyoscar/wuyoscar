@@ -6,7 +6,7 @@
 
     uv run build.py                 # 抓 GitHub 数据并生成两套主题
     uv run build.py --offline       # 不联网，用 stats.json 里上次的数字
-    uv run build.py --art pixel     # 左图风格：photo（默认，Python 的照片）/ dog / pixel / image / hybrid / ascii
+    uv run build.py --art pixel     # 左图风格：code（默认，字符版 Python）/ photo / dog / pixel / image / hybrid / ascii
     uv run build.py --all-styles    # 所有风格都生成到 variants/，用来对比
 
 文字内容在 SECTIONS / PROJECTS 里；star 等数字由脚本抓取，不要手写。
@@ -25,13 +25,13 @@ from PIL import Image, ImageEnhance, ImageOps
 
 HERE = Path(__file__).parent
 USER = "wuyoscar"
-DEFAULT_ART = "photo"
+DEFAULT_ART = "code"
 
 # ---- 版式（px）----
 FONT, LH, PAD = 15, 18, 22
 CW = FONT * 0.602          # 等宽字符宽度；每行再用 textLength 锁死，换字体不会错位
-ART_COLS, GAP_COLS, INFO_COLS = 24, 3, 64
-ART_ROWS = 16            # 头像高度（按右栏行数算），顶部对齐，不再撑满整列
+ART_COLS, GAP_COLS, INFO_COLS = 30, 3, 64
+ART_ROWS = 17            # 头像高度（按右栏行数算），顶部对齐，不再撑满整列
 STAR_COLS = 9              # Open Source 每行右侧留给 star 数的宽度
 ART_FONT, ART_LH = 6, 7    # 字符画用小字号，分辨率才够
 ART_CW = ART_FONT * 0.602
@@ -361,7 +361,30 @@ def photo_svg(c, x, y, w, h):
     return "", body
 
 
+def code_svg(theme, c, x, y, w, h):
+    """字符版 Python：art.json（由 make_art.py 生成）排成文字。全是矢量文字，放大不糊。"""
+    art = json.loads((HERE / "art.json").read_text())
+    cap_h = LH
+    font = w / (art["cols"] * 0.602)
+    lh = font * art["line"]
+    oy = y + max(0, (h - cap_h - art["rows"] * lh) / 2)
+    body = [f'<g font-size="{font:.2f}px" font-weight="bold">']
+    for j, runs in enumerate(art["lines"]):
+        if not "".join(t for _, t in runs).strip():
+            continue
+        spans = "".join(f'<tspan class="p{ci}">{escape(t)}</tspan>' for ci, t in runs)
+        body.append(f'<text x="{x:.1f}" y="{oy + j * lh + font * 0.82:.1f}" xml:space="preserve" '
+                    f'textLength="{w:.1f}" lengthAdjust="spacing">{spans}</text>')
+    body += ["</g>",
+             f'<text x="{x + w / 2:.1f}" y="{y + h - 5}" text-anchor="middle" font-size="12px" '
+             f'class="dot">Python, golden retriever</text>']
+    css = "".join(f".p{i}{{fill:{col}}}" for i, col in enumerate(art["palette"][theme]))
+    return css, body
+
+
 def art_svg(style, c, x, y, w, h):
+    if style == "code":
+        return code_svg("light" if c is THEMES["light"] else "dark", c, x, y, w, h)
     if style == "photo":
         return photo_svg(c, x, y, w, h)
     if style == "dog":
@@ -478,7 +501,7 @@ def render(theme, style, stats, out_path):
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
-    ap.add_argument("--art", choices=["photo", "dog", *CROPS], default=DEFAULT_ART)
+    ap.add_argument("--art", choices=["code", "photo", "dog", *CROPS], default=DEFAULT_ART)
     ap.add_argument("--offline", action="store_true")
     ap.add_argument("--all-styles", action="store_true")
     args = ap.parse_args()
