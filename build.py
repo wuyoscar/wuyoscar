@@ -9,7 +9,8 @@
     uv run build.py --art pixel     # 左图风格：code（默认，字符版 Python）/ photo / dog / pixel / image / hybrid / ascii
     uv run build.py --all-styles    # 所有风格都生成到 variants/，用来对比
 
-文字内容在 SECTIONS / PROJECTS 里；star 等数字由脚本抓取，不要手写。
+联网时还会刷新 README.md 里的项目小卡片（cards/*.svg；分组和文字在 readme_list.py）。
+卡片的文字内容在 SECTIONS / PROJECTS 里；star 等数字由脚本抓取，不要手写。
 """
 import argparse
 import base64
@@ -22,6 +23,9 @@ from pathlib import Path
 from xml.sax.saxutils import escape
 
 from PIL import Image, ImageEnhance, ImageOps
+
+import readme_list
+from readme_list import short
 
 HERE = Path(__file__).parent
 USER = "wuyoscar"
@@ -155,8 +159,6 @@ def fetch_stats(offline=False):
     return json.loads(cache.read_text())
 
 
-def short(n):
-    return f"{n / 1000:.1f}k" if n >= 1000 else str(n)
 
 
 # ---------------------------------------------------------------- 右栏
@@ -506,6 +508,11 @@ if __name__ == "__main__":
     ap.add_argument("--all-styles", action="store_true")
     args = ap.parse_args()
     stats = fetch_stats(args.offline)
+    if not args.offline:
+        try:
+            readme_list.refresh()   # README 里的项目小卡片（cards/*.svg）和列表
+        except Exception as e:      # 网络或限流：保留上次的卡片，不让构建失败
+            print(f"project cards not refreshed ({e})")
     if args.all_styles:
         (HERE / "variants").mkdir(exist_ok=True)
         for s in CROPS:
