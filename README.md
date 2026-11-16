@@ -16,5 +16,7 @@
 <a href="https://github.com/wuyoscar/arxiv2agent"><img src="./cards/arxiv2agent.svg" width="420" alt="arxiv2agent: Turns arXiv papers into structured, agent-readable digest folders"></a>
 <a href="https://github.com/XSafeAI/XSafeClaw"><img src="./cards/XSafeClaw.svg" width="420" alt="XSafeClaw: Open-source agent safety platform from Fudan University"></a>
 <a href="https://github.com/xingjunm/Awesome-Large-Model-Safety"><img src="./cards/Awesome-Large-Model-Safety.svg" width="420" alt="Awesome-Large-Model-Safety: Safety at Scale: a survey of large model and agent safety"></a>
+<a href="https://github.com/x-zheng16/JustAsk"><img src="./cards/JustAsk.svg" width="420" alt="JustAsk: JustAsk: curious code agents reveal system prompts in frontier LLMs. ICML 2026"></a>
+<a href="https://github.com/HanxunH/VEX-Bench"><img src="./cards/VEX-Bench.svg" width="420" alt="VEX-Bench: Benchmarking verification complexity of LLM-generated misinformation. NeurIPS 2026"></a>
 
 <!-- PROJECTS:END -->

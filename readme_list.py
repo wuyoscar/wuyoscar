@@ -34,6 +34,10 @@ README_GROUPS = [
         ("XSafeAI/XSafeClaw", "Open-source agent safety platform from Fudan University"),
         ("xingjunm/Awesome-Large-Model-Safety",
          "Safety at Scale: a survey of large model and agent safety"),
+        ("x-zheng16/JustAsk",
+         "JustAsk: curious code agents reveal system prompts in frontier LLMs. ICML 2026"),
+        ("HanxunH/VEX-Bench",
+         "Benchmarking verification complexity of LLM-generated misinformation. NeurIPS 2026"),
     ]),
     # 以后要加的分组照这个格式写，别人的仓库用 "owner/name"：
     # ("Recommended", [
