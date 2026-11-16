@@ -103,6 +103,7 @@ PROJECTS = [
     ("jev-skill", "agent skills & workflows"),
     ("arxiv2agent", "arXiv -> agent-readable digests"),
     ("scamworld-bench", "web agents vs. online fraud"),
+    ("Vibepost", "Markdown -> Xiaohongshu image cards"),
 ]
 
 THEMES = {
