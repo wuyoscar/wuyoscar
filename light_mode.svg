@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="920" height="548" viewBox="0 0 920 548" font-size="15px" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace">
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="566" viewBox="0 0 920 566" font-size="15px" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace">
 <style>.fg{fill:#24292f}.key{fill:#953800}.val{fill:#0a3069}.dot{fill:#afb8c1}.star{fill:#9a6700}text{white-space:pre}@keyframes blink{50%{opacity:0}}.cursor{animation:blink 1.1s steps(1) infinite}.p0{fill:#2e1a0c}.p1{fill:#6f451a}.p2{fill:#8a5a22}.p3{fill:#a5702b}.p4{fill:#bd8636}.p5{fill:#cf9a48}.p6{fill:#dcae62}.p7{fill:#c2506a}</style>
 <defs><pattern id="scan" width="4" height="3" patternUnits="userSpaceOnUse"><rect width="4" height="1" fill="#000" opacity="0.28"/></pattern><linearGradient id="beam" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cf222e" stop-opacity="0"/><stop offset="1" stop-color="#cf222e" stop-opacity="0.22"/></linearGradient></defs>
-<rect x="0.5" y="0.5" width="919" height="547" rx="10" fill="#f6f8fa" stroke="#d0d7de"/>
+<rect x="0.5" y="0.5" width="919" height="565" rx="10" fill="#f6f8fa" stroke="#d0d7de"/>
 <g font-size="9.78px" font-weight="bold">
 <text x="22.0" y="41.6" xml:space="preserve" textLength="270.9" lengthAdjust="spacing"><tspan class="p0">                 </tspan><tspan class="p5">%      %</tspan><tspan class="p4">###                  </tspan></text>
 <text x="22.0" y="53.1" xml:space="preserve" textLength="270.9" lengthAdjust="spacing"><tspan class="p0">               </tspan><tspan class="p5">%</tspan><tspan class="p4">########</tspan><tspan class="p3">*****</tspan><tspan class="p4">#                </tspan></text>
@@ -53,13 +53,15 @@
 <text x="897.9" y="360" class="star" text-anchor="end">★ 12</text>
 <text x="320.0" y="378" xml:space="preserve" textLength="496.6" lengthAdjust="spacing"><tspan class="dot">. </tspan><tspan class="key">scamworld-bench</tspan><tspan class="fg">:</tspan><tspan class="dot"> ........ </tspan><tspan class="val">web agents vs. online fraud</tspan></text>
 <text x="897.9" y="378" class="star" text-anchor="end">★ 9</text>
-<text x="320.0" y="414" xml:space="preserve" textLength="577.9" lengthAdjust="spacing"><tspan class="fg">- Contact ──────────────────────────────────────────────────────</tspan></text>
-<text x="320.0" y="432" xml:space="preserve" textLength="577.9" lengthAdjust="spacing"><tspan class="dot">. </tspan><tspan class="key">Email</tspan><tspan class="fg">:</tspan><tspan class="dot"> ..................................... </tspan><tspan class="val">wuy7117@gmail.com</tspan></text>
-<text x="320.0" y="450" xml:space="preserve" textLength="577.9" lengthAdjust="spacing"><tspan class="dot">. </tspan><tspan class="key">Website</tspan><tspan class="fg">:</tspan><tspan class="dot"> ..................................... </tspan><tspan class="val">aisafetyhot.com</tspan></text>
-<text x="320.0" y="468" xml:space="preserve" textLength="577.9" lengthAdjust="spacing"><tspan class="dot">. </tspan><tspan class="key">Scholar</tspan><tspan class="fg">:</tspan><tspan class="dot"> ...... </tspan><tspan class="val">scholar.google.com/citations?user=F41UYqAAAAAJ</tspan></text>
-<text x="320.0" y="486" xml:space="preserve" textLength="577.9" lengthAdjust="spacing"><tspan class="dot">. </tspan><tspan class="key">LinkedIn</tspan><tspan class="fg">:</tspan><tspan class="dot"> .......................... </tspan><tspan class="val">linkedin.com/in/oscar-wu-</tspan></text>
-<text x="320.0" y="522" class="key" xml:space="preserve">oscar@wuyoscar:~$ </text>
-<rect class="cursor" x="482.5" y="510" width="9.0" height="15" fill="#24292f"/>
+<text x="320.0" y="396" xml:space="preserve" textLength="496.6" lengthAdjust="spacing"><tspan class="dot">. </tspan><tspan class="key">Vibepost</tspan><tspan class="fg">:</tspan><tspan class="dot"> ....... </tspan><tspan class="val">Markdown -&gt; Xiaohongshu image cards</tspan></text>
+<text x="897.9" y="396" class="star" text-anchor="end">★ 116</text>
+<text x="320.0" y="432" xml:space="preserve" textLength="577.9" lengthAdjust="spacing"><tspan class="fg">- Contact ──────────────────────────────────────────────────────</tspan></text>
+<text x="320.0" y="450" xml:space="preserve" textLength="577.9" lengthAdjust="spacing"><tspan class="dot">. </tspan><tspan class="key">Email</tspan><tspan class="fg">:</tspan><tspan class="dot"> ..................................... </tspan><tspan class="val">wuy7117@gmail.com</tspan></text>
+<text x="320.0" y="468" xml:space="preserve" textLength="577.9" lengthAdjust="spacing"><tspan class="dot">. </tspan><tspan class="key">Website</tspan><tspan class="fg">:</tspan><tspan class="dot"> ..................................... </tspan><tspan class="val">aisafetyhot.com</tspan></text>
+<text x="320.0" y="486" xml:space="preserve" textLength="577.9" lengthAdjust="spacing"><tspan class="dot">. </tspan><tspan class="key">Scholar</tspan><tspan class="fg">:</tspan><tspan class="dot"> ...... </tspan><tspan class="val">scholar.google.com/citations?user=F41UYqAAAAAJ</tspan></text>
+<text x="320.0" y="504" xml:space="preserve" textLength="577.9" lengthAdjust="spacing"><tspan class="dot">. </tspan><tspan class="key">LinkedIn</tspan><tspan class="fg">:</tspan><tspan class="dot"> .......................... </tspan><tspan class="val">linkedin.com/in/oscar-wu-</tspan></text>
+<text x="320.0" y="540" class="key" xml:space="preserve">oscar@wuyoscar:~$ </text>
+<rect class="cursor" x="482.5" y="528" width="9.0" height="15" fill="#24292f"/>
 <text x="22" y="360" xml:space="preserve" textLength="270.9" lengthAdjust="spacing"><tspan class="fg">- Offline ────────────────────</tspan></text>
 <text x="22" y="378" xml:space="preserve" textLength="270.9" lengthAdjust="spacing"><tspan class="dot">. </tspan><tspan class="val">basketball, swimming,       </tspan></text>
 <text x="22" y="396" xml:space="preserve" textLength="270.9" lengthAdjust="spacing"><tspan class="dot">. </tspan><tspan class="val">hiking, cooking,            </tspan></text>
@@ -67,6 +69,6 @@
 <text x="22" y="432" xml:space="preserve" textLength="270.9" lengthAdjust="spacing"><tspan class="dot">. </tspan><tspan class="val">Elden Ring                  </tspan></text>
 <text x="22" y="468" xml:space="preserve" textLength="270.9" lengthAdjust="spacing"><tspan class="fg">- GitHub ─────────────────────</tspan></text>
 <text x="22" y="486" xml:space="preserve" textLength="270.9" lengthAdjust="spacing"><tspan class="dot">. </tspan><tspan class="key">Repos</tspan><tspan class="fg">:</tspan><tspan class="dot"> .................. </tspan><tspan class="val">13</tspan></text>
-<text x="22" y="504" xml:space="preserve" textLength="270.9" lengthAdjust="spacing"><tspan class="dot">. </tspan><tspan class="key">Stars</tspan><tspan class="fg">:</tspan><tspan class="dot"> .............. </tspan><tspan class="val">11,671</tspan></text>
+<text x="22" y="504" xml:space="preserve" textLength="270.9" lengthAdjust="spacing"><tspan class="dot">. </tspan><tspan class="key">Stars</tspan><tspan class="fg">:</tspan><tspan class="dot"> .............. </tspan><tspan class="val">11,676</tspan></text>
 <text x="22" y="522" xml:space="preserve" textLength="270.9" lengthAdjust="spacing"><tspan class="dot">. </tspan><tspan class="key">Followers</tspan><tspan class="fg">:</tspan><tspan class="dot"> ............. </tspan><tspan class="val">283</tspan></text>
 </svg>
