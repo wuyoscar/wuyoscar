@@ -2,7 +2,7 @@ name: Update profile card
 
 on:
   schedule:
-    - cron: "0 0 * * 1" # 每周一 00:00 UTC
+    - cron: "0 0 * * *" # 每天 00:00 UTC（北京时间 08:00）；一天两次写 "0 0,12 * * *"
   workflow_dispatch:
 
 permissions:
