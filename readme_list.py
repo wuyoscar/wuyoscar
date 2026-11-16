@@ -31,6 +31,9 @@ README_GROUPS = [
          "ScamWorld, an interactive environment for evaluating web agents against online fraud"),
         ("Vibepost", "Desktop app that lays out Markdown as Xiaohongshu image cards and long images"),
         ("arxiv2agent", "Turns arXiv papers into structured, agent-readable digest folders"),
+        ("XSafeAI/XSafeClaw", "Open-source agent safety platform from Fudan University"),
+        ("xingjunm/Awesome-Large-Model-Safety",
+         "Safety at Scale: a survey of large model and agent safety"),
     ]),
     # 以后要加的分组照这个格式写，别人的仓库用 "owner/name"：
     # ("Recommended", [

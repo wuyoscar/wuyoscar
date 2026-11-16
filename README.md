@@ -14,5 +14,7 @@
 <a href="https://github.com/wuyoscar/scamworld-bench"><img src="./cards/scamworld-bench.svg" width="420" alt="scamworld-bench: ScamWorld, an interactive environment for evaluating web agents against online fraud"></a>
 <a href="https://github.com/wuyoscar/Vibepost"><img src="./cards/Vibepost.svg" width="420" alt="Vibepost: Desktop app that lays out Markdown as Xiaohongshu image cards and long images"></a>
 <a href="https://github.com/wuyoscar/arxiv2agent"><img src="./cards/arxiv2agent.svg" width="420" alt="arxiv2agent: Turns arXiv papers into structured, agent-readable digest folders"></a>
+<a href="https://github.com/XSafeAI/XSafeClaw"><img src="./cards/XSafeClaw.svg" width="420" alt="XSafeClaw: Open-source agent safety platform from Fudan University"></a>
+<a href="https://github.com/xingjunm/Awesome-Large-Model-Safety"><img src="./cards/Awesome-Large-Model-Safety.svg" width="420" alt="Awesome-Large-Model-Safety: Safety at Scale: a survey of large model and agent safety"></a>
 
 <!-- PROJECTS:END -->
