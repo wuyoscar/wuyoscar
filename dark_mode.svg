@@ -48,7 +48,7 @@
 <text x="320.0" y="324" xml:space="preserve" textLength="496.6" lengthAdjust="spacing"><tspan class="dot">. </tspan><tspan class="key">GPT-Image2-Skill</tspan><tspan class="fg">:</tspan><tspan class="dot"> ... </tspan><tspan class="val">image prompts, CLI, agent skill</tspan></text>
 <text x="897.9" y="324" class="star" text-anchor="end">★ 6.1k</text>
 <text x="320.0" y="342" xml:space="preserve" textLength="496.6" lengthAdjust="spacing"><tspan class="dot">. </tspan><tspan class="key">jev-skill</tspan><tspan class="fg">:</tspan><tspan class="dot"> ................. </tspan><tspan class="val">agent skills &amp; workflows</tspan></text>
-<text x="897.9" y="342" class="star" text-anchor="end">★ 678</text>
+<text x="897.9" y="342" class="star" text-anchor="end">★ 681</text>
 <text x="320.0" y="360" xml:space="preserve" textLength="496.6" lengthAdjust="spacing"><tspan class="dot">. </tspan><tspan class="key">arxiv2agent</tspan><tspan class="fg">:</tspan><tspan class="dot"> ........ </tspan><tspan class="val">arXiv -&gt; agent-readable digests</tspan></text>
 <text x="897.9" y="360" class="star" text-anchor="end">★ 12</text>
 <text x="320.0" y="378" xml:space="preserve" textLength="496.6" lengthAdjust="spacing"><tspan class="dot">. </tspan><tspan class="key">scamworld-bench</tspan><tspan class="fg">:</tspan><tspan class="dot"> ........ </tspan><tspan class="val">web agents vs. online fraud</tspan></text>
@@ -69,6 +69,6 @@
 <text x="22" y="432" xml:space="preserve" textLength="270.9" lengthAdjust="spacing"><tspan class="dot">. </tspan><tspan class="val">Elden Ring                  </tspan></text>
 <text x="22" y="468" xml:space="preserve" textLength="270.9" lengthAdjust="spacing"><tspan class="fg">- GitHub ─────────────────────</tspan></text>
 <text x="22" y="486" xml:space="preserve" textLength="270.9" lengthAdjust="spacing"><tspan class="dot">. </tspan><tspan class="key">Repos</tspan><tspan class="fg">:</tspan><tspan class="dot"> .................. </tspan><tspan class="val">13</tspan></text>
-<text x="22" y="504" xml:space="preserve" textLength="270.9" lengthAdjust="spacing"><tspan class="dot">. </tspan><tspan class="key">Stars</tspan><tspan class="fg">:</tspan><tspan class="dot"> .............. </tspan><tspan class="val">11,707</tspan></text>
+<text x="22" y="504" xml:space="preserve" textLength="270.9" lengthAdjust="spacing"><tspan class="dot">. </tspan><tspan class="key">Stars</tspan><tspan class="fg">:</tspan><tspan class="dot"> .............. </tspan><tspan class="val">11,720</tspan></text>
 <text x="22" y="522" xml:space="preserve" textLength="270.9" lengthAdjust="spacing"><tspan class="dot">. </tspan><tspan class="key">Followers</tspan><tspan class="fg">:</tspan><tspan class="dot"> ............. </tspan><tspan class="val">285</tspan></text>
 </svg>
