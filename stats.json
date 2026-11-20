@@ -1,20 +1,21 @@
 {
-  "followers": 285,
+  "followers": 284,
   "repo_stars": {
-    "AISafetyHot": 2137,
+    "ADMIT": 0,
+    "AISafetyHot": 2083,
     "CLEAR": 0,
-    "GPT-Image2-Skill": 6136,
+    "GPT-Image2-Skill": 6150,
     "Internal-Safety-Collapse": 2624,
     "KONEKSI-Colab-Research-Project.": 0,
     "MOP_T": 1,
     "PaperAsk": 3,
     "VESKI_Colab_Research_Project.": 0,
-    "Vibepost": 125,
+    "Vibepost": 126,
     "arxiv2agent": 12,
     "jev-skill": 682,
     "scamworld-bench": 9,
     "wuyoscar": 0
   },
-  "repos": 13,
-  "stars": 11729
+  "repos": 14,
+  "stars": 11690
 }
