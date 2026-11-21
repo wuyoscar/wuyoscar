@@ -9,7 +9,7 @@
     uv run build.py --art pixel     # 左图风格：code（默认，字符版 Python）/ photo / dog / pixel / image / hybrid / ascii
     uv run build.py --all-styles    # 所有风格都生成到 variants/，用来对比
 
-联网时还会刷新 README.md 里的项目小卡片（cards/*.svg；分组和文字在 readme_list.py）。
+联网时还会刷新 README.md 里的项目表格（项目和文字在 readme_list.py）。
 卡片的文字内容在 SECTIONS / PROJECTS 里；star 等数字由脚本抓取，不要手写。
 """
 import argparse
@@ -511,9 +511,9 @@ if __name__ == "__main__":
     stats = fetch_stats(args.offline)
     if not args.offline:
         try:
-            readme_list.refresh()   # README 里的项目小卡片（cards/*.svg）和列表
-        except Exception as e:      # 网络或限流：保留上次的卡片，不让构建失败
-            print(f"project cards not refreshed ({e})")
+            readme_list.refresh()   # README 里的项目表格
+        except Exception as e:      # 网络或限流：保留上次的表格，不让构建失败
+            print(f"project table not refreshed ({e})")
     if args.all_styles:
         (HERE / "variants").mkdir(exist_ok=True)
         for s in CROPS:
