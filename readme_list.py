@@ -2,7 +2,7 @@
 # requires-python = ">=3.10"
 # dependencies = []
 # ///
-"""README.md 里卡片下方的项目表格：左列 star 数，右列图标 + 项目名，下面一行是说明。
+"""README.md 里卡片下方的项目表格：star 数 | 像素图标 | 项目名，下面一行是说明。
 
     uv run readme_list.py     # 重新抓 star，改写 README.md 里的表格
 
@@ -80,15 +80,18 @@ def readme_block(stars):
         out.append("")
         if group:
             out += [f"### {group}", ""]
-        out += ["| ⭐ | Project |", "|--:|:--|"]
+        # 图标列的表头放一串不换行空格把列宽撑到 32px 以上：GitHub 给图片加了 max-width:100%，
+        # 这一列没有别的内容时，窄屏下列宽会塌掉，图标被压成几个像素
+        out += [f"| ⭐ | {'&nbsp;' * 10} | Project |", "|--:|:-:|:--|"]
         # 组内按 star 数从高到低排；star 相同的保持 README_GROUPS 里的先后
         for repo, desc in sorted(items, key=lambda it: -stars[full_name(it[0])]):
             full = full_name(repo)
             cell = desc.replace("|", "\\|")     # 说明里的竖线要转义，否则会被当成分列
             name = full.split("/")[1]
-            icon = (f'<img src="./icons/{name}.svg" width="20" height="20" align="absmiddle" alt=""> '
+            url = f"https://github.com/{full}"
+            icon = (f'<a href="{url}"><img src="./icons/{name}.svg" width="32" height="32" alt=""></a>'
                     if (HERE / "icons" / f"{name}.svg").exists() else "")
-            out.append(f"| {short(stars[full])} | {icon}**[{repo}](https://github.com/{full})**<br>{cell} |")
+            out.append(f"| {short(stars[full])} | {icon} | **[{repo}]({url})**<br>{cell} |")
     out += ["", END]
     return "\n".join(out)
 
