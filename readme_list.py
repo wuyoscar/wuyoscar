@@ -81,7 +81,8 @@ def readme_block(stars):
         if group:
             out += [f"### {group}", ""]
         out += ["| ⭐ | Project |", "|--:|:--|"]
-        for repo, emoji, desc in items:
+        # 组内按 star 数从高到低排；star 相同的保持 README_GROUPS 里的先后
+        for repo, emoji, desc in sorted(items, key=lambda it: -stars[full_name(it[0])]):
             full = full_name(repo)
             cell = desc.replace("|", "\\|")     # 说明里的竖线要转义，否则会被当成分列
             out.append(f"| {short(stars[full])} | {emoji} **[{repo}](https://github.com/{full})**<br>{cell} |")
