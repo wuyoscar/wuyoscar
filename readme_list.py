@@ -2,12 +2,12 @@
 # requires-python = ">=3.10"
 # dependencies = []
 # ///
-"""README.md 里卡片下方的项目表格：左列 star 数，右列 emoji + 项目名，下面一行是说明。
+"""README.md 里卡片下方的项目表格：左列 star 数，右列图标 + 项目名，下面一行是说明。
 
     uv run readme_list.py     # 重新抓 star，改写 README.md 里的表格
 
 build.py 每次生成大卡片时也会调用这里的 refresh()，所以每天的 Action 不用单独跑它。
-要增删项目或改分组，只改 README_GROUPS。
+要增删项目或改分组，只改 README_GROUPS；图标是 icons/<仓库名>.svg（由 make_icons.py 生成），没有就不显示。
 """
 import json
 import os
@@ -17,30 +17,30 @@ from pathlib import Path
 HERE = Path(__file__).parent
 USER = "wuyoscar"
 
-# (分组, [(仓库, emoji, 一句话说明), ...])。自己的仓库只写名字；别人的仓库写 "owner/name"。
+# (分组, [(仓库, 一句话说明), ...])。自己的仓库只写名字；别人的仓库写 "owner/name"。
 # 分组名写 None 就不出小标题。现在项目不多，先不分组；以后要分，把 None 换成组名、再加一组即可。
 README_GROUPS = [
     (None, [
-        ("Internal-Safety-Collapse", "🚨",
+        ("Internal-Safety-Collapse",
          "Safety failures in coding agents and frontier LLMs, with reproducible workspaces. NeurIPS 2026"),
-        ("GPT-Image2-Skill", "🎨", "Prompt gallery, CLI and agent skill for GPT Image 2 generation and editing"),
-        ("AISafetyHot", "🔥", "Daily AI safety news, papers and incidents: website, digest, RSS and MCP"),
-        ("jev-skill", "🧩", "Jev use cases, workflows and agent skills"),
-        ("scamworld-bench", "🎣",
+        ("GPT-Image2-Skill", "Prompt gallery, CLI and agent skill for GPT Image 2 generation and editing"),
+        ("AISafetyHot", "Daily AI safety news, papers and incidents: website, digest, RSS and MCP"),
+        ("jev-skill", "Jev use cases, workflows and agent skills"),
+        ("scamworld-bench",
          "ScamWorld, an interactive environment for evaluating web agents against online fraud"),
-        ("Vibepost", "🖼️", "Desktop app that lays out Markdown as Xiaohongshu image cards and long images"),
-        ("arxiv2agent", "📄", "Turns arXiv papers into structured, agent-readable digest folders"),
-        ("XSafeAI/XSafeClaw", "🦞", "Open-source agent safety platform from Fudan University"),
-        ("xingjunm/Awesome-Large-Model-Safety", "📚",
+        ("Vibepost", "Desktop app that lays out Markdown as Xiaohongshu image cards and long images"),
+        ("arxiv2agent", "Turns arXiv papers into structured, agent-readable digest folders"),
+        ("XSafeAI/XSafeClaw", "Open-source agent safety platform from Fudan University"),
+        ("xingjunm/Awesome-Large-Model-Safety",
          "Safety at Scale: a survey of large model and agent safety"),
-        ("x-zheng16/JustAsk", "🙋",
+        ("x-zheng16/JustAsk",
          "JustAsk: curious code agents reveal system prompts in frontier LLMs. ICML 2026"),
-        ("HanxunH/VEX-Bench", "🔎",
+        ("HanxunH/VEX-Bench",
          "Benchmarking verification complexity of LLM-generated misinformation. NeurIPS 2026"),
     ]),
     # 以后要加的分组照这个格式写，别人的仓库用 "owner/name"：
     # ("Recommended", [
-    #     ("owner/name", "🔧", "一句话说明"),
+    #     ("owner/name", "一句话说明"),
     # ]),
 ]
 START, END = "<!-- PROJECTS:START -->", "<!-- PROJECTS:END -->"
@@ -51,7 +51,7 @@ def full_name(repo):
 
 
 def listed():
-    return [full_name(repo) for _, items in README_GROUPS for repo, _, _ in items]
+    return [full_name(repo) for _, items in README_GROUPS for repo, _ in items]
 
 
 def short(n):
@@ -82,10 +82,13 @@ def readme_block(stars):
             out += [f"### {group}", ""]
         out += ["| ⭐ | Project |", "|--:|:--|"]
         # 组内按 star 数从高到低排；star 相同的保持 README_GROUPS 里的先后
-        for repo, emoji, desc in sorted(items, key=lambda it: -stars[full_name(it[0])]):
+        for repo, desc in sorted(items, key=lambda it: -stars[full_name(it[0])]):
             full = full_name(repo)
             cell = desc.replace("|", "\\|")     # 说明里的竖线要转义，否则会被当成分列
-            out.append(f"| {short(stars[full])} | {emoji} **[{repo}](https://github.com/{full})**<br>{cell} |")
+            name = full.split("/")[1]
+            icon = (f'<img src="./icons/{name}.svg" width="20" height="20" align="absmiddle" alt=""> '
+                    if (HERE / "icons" / f"{name}.svg").exists() else "")
+            out.append(f"| {short(stars[full])} | {icon}**[{repo}](https://github.com/{full})**<br>{cell} |")
     out += ["", END]
     return "\n".join(out)
 
