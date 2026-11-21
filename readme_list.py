@@ -2,7 +2,7 @@
 # requires-python = ">=3.10"
 # dependencies = []
 # ///
-"""README.md 里卡片下方的项目表格：Project / Description / Stars。
+"""README.md 里卡片下方的项目表格：左列 star 数，右列 emoji + 项目名，下面一行是说明。
 
     uv run readme_list.py     # 重新抓 star，改写 README.md 里的表格
 
@@ -17,30 +17,30 @@ from pathlib import Path
 HERE = Path(__file__).parent
 USER = "wuyoscar"
 
-# (分组, [(仓库, 一句话说明), ...])。自己的仓库只写名字；别人的仓库写 "owner/name"。
+# (分组, [(仓库, emoji, 一句话说明), ...])。自己的仓库只写名字；别人的仓库写 "owner/name"。
 # 分组名写 None 就不出小标题。现在项目不多，先不分组；以后要分，把 None 换成组名、再加一组即可。
 README_GROUPS = [
     (None, [
-        ("Internal-Safety-Collapse",
+        ("Internal-Safety-Collapse", "🚨",
          "Safety failures in coding agents and frontier LLMs, with reproducible workspaces. NeurIPS 2026"),
-        ("GPT-Image2-Skill", "Prompt gallery, CLI and agent skill for GPT Image 2 generation and editing"),
-        ("AISafetyHot", "Daily AI safety news, papers and incidents: website, digest, RSS and MCP"),
-        ("jev-skill", "Jev use cases, workflows and agent skills"),
-        ("scamworld-bench",
+        ("GPT-Image2-Skill", "🎨", "Prompt gallery, CLI and agent skill for GPT Image 2 generation and editing"),
+        ("AISafetyHot", "🔥", "Daily AI safety news, papers and incidents: website, digest, RSS and MCP"),
+        ("jev-skill", "🧩", "Jev use cases, workflows and agent skills"),
+        ("scamworld-bench", "🎣",
          "ScamWorld, an interactive environment for evaluating web agents against online fraud"),
-        ("Vibepost", "Desktop app that lays out Markdown as Xiaohongshu image cards and long images"),
-        ("arxiv2agent", "Turns arXiv papers into structured, agent-readable digest folders"),
-        ("XSafeAI/XSafeClaw", "Open-source agent safety platform from Fudan University"),
-        ("xingjunm/Awesome-Large-Model-Safety",
+        ("Vibepost", "🖼️", "Desktop app that lays out Markdown as Xiaohongshu image cards and long images"),
+        ("arxiv2agent", "📄", "Turns arXiv papers into structured, agent-readable digest folders"),
+        ("XSafeAI/XSafeClaw", "🦞", "Open-source agent safety platform from Fudan University"),
+        ("xingjunm/Awesome-Large-Model-Safety", "📚",
          "Safety at Scale: a survey of large model and agent safety"),
-        ("x-zheng16/JustAsk",
+        ("x-zheng16/JustAsk", "🙋",
          "JustAsk: curious code agents reveal system prompts in frontier LLMs. ICML 2026"),
-        ("HanxunH/VEX-Bench",
+        ("HanxunH/VEX-Bench", "🔎",
          "Benchmarking verification complexity of LLM-generated misinformation. NeurIPS 2026"),
     ]),
     # 以后要加的分组照这个格式写，别人的仓库用 "owner/name"：
     # ("Recommended", [
-    #     ("owner/name", "一句话说明"),
+    #     ("owner/name", "🔧", "一句话说明"),
     # ]),
 ]
 START, END = "<!-- PROJECTS:START -->", "<!-- PROJECTS:END -->"
@@ -51,7 +51,7 @@ def full_name(repo):
 
 
 def listed():
-    return [full_name(repo) for _, items in README_GROUPS for repo, _ in items]
+    return [full_name(repo) for _, items in README_GROUPS for repo, _, _ in items]
 
 
 def short(n):
@@ -73,17 +73,18 @@ def fetch_stars():
 
 
 def readme_block(stars):
-    """每组一张 Markdown 表格（有组名时前面加小标题）。自己的仓库只显示名字，别人的显示 owner/name。"""
+    """每组一张两列的 Markdown 表格（有组名时前面加小标题）。star 数单独一列放在行首，
+    手机上也放得下；自己的仓库只显示名字，别人的显示 owner/name。"""
     out = [START]
     for group, items in README_GROUPS:
         out.append("")
         if group:
             out += [f"### {group}", ""]
-        out += ["| Project | Description | Stars |", "|:--|:--|--:|"]
-        for repo, desc in items:
+        out += ["| ⭐ | Project |", "|--:|:--|"]
+        for repo, emoji, desc in items:
             full = full_name(repo)
             cell = desc.replace("|", "\\|")     # 说明里的竖线要转义，否则会被当成分列
-            out.append(f"| [{repo}](https://github.com/{full}) | {cell} | {short(stars[full])} |")
+            out.append(f"| {short(stars[full])} | {emoji} **[{repo}](https://github.com/{full})**<br>{cell} |")
     out += ["", END]
     return "\n".join(out)
 
