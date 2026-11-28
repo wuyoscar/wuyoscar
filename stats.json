@@ -1,11 +1,11 @@
 {
-  "followers": 288,
+  "followers": 289,
   "repo_stars": {
     "ADMIT": 0,
-    "AISafetyHot": 2078,
+    "AISafetyHot": 2079,
     "CLEAR": 0,
-    "GPT-Image2-Skill": 6205,
-    "Internal-Safety-Collapse": 2461,
+    "GPT-Image2-Skill": 6210,
+    "Internal-Safety-Collapse": 2482,
     "KONEKSI-Colab-Research-Project.": 0,
     "MOP_T": 1,
     "PaperAsk": 3,
@@ -18,5 +18,5 @@
     "wuyoscar": 0
   },
   "repos": 15,
-  "stars": 11583
+  "stars": 11610
 }
